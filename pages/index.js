@@ -1,7 +1,7 @@
-import * as React from 'react'
+import * as React from 'react';
 import Head from 'next/head';
 import { useAuth } from '../lib/auth';
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.css';
 
 export default function Home() {
   const auth = useAuth();
@@ -21,7 +21,8 @@ export default function Home() {
           <code className={styles.code}>pages/index.js</code>
         </p>
         <button onClick={(e) => auth.signinWithGithub()}>Sign in</button>
-        <div>{auth?.user}</div>
+        <div>{auth?.user?.email}</div>
+        {auth?.user && <button onClick={(e) => auth.signout()}>Sign out</button>}
       </main>
 
       <footer className={styles.footer}>
