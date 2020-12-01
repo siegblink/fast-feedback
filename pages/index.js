@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Fast Feedback</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -17,12 +17,14 @@ export default function Home() {
         <h1 className={styles.title}>Fast Feedback</h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
+          Current user:<code className={styles.code}>{auth?.user?.email}</code>
         </p>
-        <button onClick={(e) => auth.signinWithGithub()}>Sign in</button>
-        <div>{auth?.user?.email}</div>
-        {auth?.user && <button onClick={(e) => auth.signout()}>Sign out</button>}
+
+        {auth.user ? (
+          <button onClick={(e) => auth.signout()}>Sign out</button>
+        ) : (
+          <button onClick={(e) => auth.signinWithGitHub()}>Sign in</button>
+        )}
       </main>
 
       <footer className={styles.footer}>
