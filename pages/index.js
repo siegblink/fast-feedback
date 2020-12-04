@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Head from 'next/head';
 import { Button, Flex } from '@chakra-ui/react';
-import { FastFeedbackIcon } from 'public/icons';
+import { FastFeedbackIcon } from '@/styles/theme';
 import { useAuth } from '@/lib/auth';
 
 export default function Home() {
