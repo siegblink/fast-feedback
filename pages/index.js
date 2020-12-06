@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Head from 'next/head';
 import { Button, Flex } from '@chakra-ui/react';
-import { FastFeedbackIcon } from 'public/icons';
+import { FastFeedbackIcon } from '@/styles/theme';
 import { useAuth } from '@/lib/auth';
 
 export default function Home() {
@@ -22,15 +22,11 @@ export default function Home() {
       </Head>
 
       <FastFeedbackIcon color="black.500" boxSize="64px" />
-      
+
       {auth.user ? (
         <Button onClick={(e) => auth.signout()}>Sign out</Button>
       ) : (
-        <Button
-          mt={4}
-          size="sm"
-          onClick={(e) => auth.signinWithGitHub()}
-        >
+        <Button mt={4} size="sm" onClick={(e) => auth.signinWithGitHub()}>
           Sign in
         </Button>
       )}
